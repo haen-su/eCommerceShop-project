@@ -21,7 +21,7 @@ public class Item {
     private String itemNm; //상품명
 
     @Column(name="price", nullable = false)
-    private int price; //가격
+    private Integer price; //가격
 
     @Column(nullable = false)
     private int stockNumber; //재고수량
@@ -32,4 +32,5 @@ public class Item {
 
     @Enumerated(EnumType.STRING)
     private ItemSellStatus itemSellStatus; //상품 판매 상태
+
 }
