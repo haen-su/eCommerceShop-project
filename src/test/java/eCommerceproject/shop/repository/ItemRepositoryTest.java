@@ -4,7 +4,7 @@ import com.querydsl.core.BooleanBuilder;
 import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import eCommerceproject.shop.domain.Item;
-import eCommerceproject.shop.domain.ItemSellStatus;
+import eCommerceproject.shop.constant.ItemSellStatus;
 import eCommerceproject.shop.domain.QItem;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

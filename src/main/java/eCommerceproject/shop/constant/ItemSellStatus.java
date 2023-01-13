@@ -1,4 +1,4 @@
-package eCommerceproject.shop.domain;
+package eCommerceproject.shop.constant;
 
 public enum ItemSellStatus {
     SELL, SOLD_OUT
