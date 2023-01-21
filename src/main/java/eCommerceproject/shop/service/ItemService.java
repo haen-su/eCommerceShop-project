@@ -4,9 +4,12 @@ import eCommerceproject.shop.domain.Item;
 import eCommerceproject.shop.domain.ItemImg;
 import eCommerceproject.shop.dto.ItemFormDto;
 import eCommerceproject.shop.dto.ItemImgDto;
+import eCommerceproject.shop.dto.ItemSearchDto;
 import eCommerceproject.shop.repository.ItemImgRepository;
 import eCommerceproject.shop.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
@@ -73,5 +76,9 @@ public class ItemService {
         }
 
         return item.getId();
+    }
+
+    public Page<Item> getAdminItemPage(ItemSearchDto itemSearchDto, Pageable pageable) {
+        return itemRepository.getAdminItemPage(itemSearchDto, pageable);
     }
 }
