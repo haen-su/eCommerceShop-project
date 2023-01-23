@@ -29,7 +29,7 @@ public class OrderController {
     @PostMapping(value = "/order")
     @ResponseBody
     public ResponseEntity order(@RequestBody @Valid OrderDto orderDto,
-                                              BindingResult bindingResult, Principal principal) {
+                                BindingResult bindingResult, Principal principal) {
 
         if (bindingResult.hasErrors()) {
             StringBuilder sb = new StringBuilder();
@@ -65,5 +65,16 @@ public class OrderController {
         model.addAttribute("maxPage", 5);
 
         return "order/orderHist";
+    }
+
+    @PostMapping("/order/{orderId}/cancel")
+    @ResponseBody
+    public ResponseEntity cancelOrder(@PathVariable("orderId") Long orderId, Principal principal) {
+        if(!orderService.vaildateOrder(orderId, principal.getName())) {
+            return new ResponseEntity<String>("주문 취소 권한이 없습니다.", HttpStatus.FORBIDDEN);
+        }
+
+        orderService.cancelOrder(orderId);
+        return new ResponseEntity<Long>(orderId, HttpStatus.OK);
     }
 }
